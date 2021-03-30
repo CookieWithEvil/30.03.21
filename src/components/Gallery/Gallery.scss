@@ -1,0 +1,81 @@
+.gallery {
+  border: 2px solid #d58c77;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1%;
+  flex-wrap: wrap;
+  width: 72%;
+
+  &-title {
+    width: 100%;
+  }
+
+  &__movie {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 24%;
+    background: white;
+    transition: all 0.5s;
+    cursor: help;
+
+    &.list{
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 100%;
+      transition: all 0.5s;
+    }
+
+    &-label {
+      position: absolute;
+      background: url('../../assets/images/not-fav.svg');
+      height: 20px;
+      width: 20px;
+      right: -10px;
+      top: -10px;
+      border: none;
+      background-size: 100% 100%;
+
+      &.favorite {
+        background: url('../../assets/images/fav.svg');
+        background-size: 100% 100%;
+      }
+    }
+
+    &__image-container {
+      overflow-x: hidden;
+      overflow-y: visible;
+      min-height: 200px;
+      width: 100%;
+      &-image {
+        height: 200px;
+        width: auto;
+      }
+
+    }
+
+  }
+}
+
+// .card-view,
+// .list-view {
+//   height: 20px;
+//   width: 20px;
+//   border: none;
+//   background: rgba(0,0,0,0) url('../../assets/images/list-round-bullet.svg');
+//   background-size: 100% 100%;
+// }
+//
+// .card-view {
+//   background: rgba(0,0,0,0) url('../../assets/images/apps-grid.svg');
+//   background-size: 100% 100%;
+// }
+//
+// .view-as {
+//   margin: 10px 10px 20px;
+//   float: right;
+// }

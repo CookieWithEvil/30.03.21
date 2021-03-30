@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  background: #1a5e51;
+  color: #d58c77;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+h1, h2, h3 {
+  font-family: 'Train One';
+  color: coral;
+}
