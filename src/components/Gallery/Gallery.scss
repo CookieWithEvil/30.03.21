@@ -1,11 +1,18 @@
+@import "../mixins.scss";
+
 .gallery {
   border: 2px solid #d58c77;
+  padding-left: 1%;
   border-radius: 5px;
   display: flex;
   justify-content: flex-start;
   gap: 1%;
   flex-wrap: wrap;
-  width: 72%;
+  width: 71%;
+
+  @include phone-portrait {
+    width: 99%;
+  }
 
   &-title {
     width: 100%;
@@ -22,6 +29,17 @@
     background: #277365;
     transition: all 0.5s;
     cursor: help;
+
+    @include phone-portrait {
+      width: 48.5%;
+    }
+
+    @for $i from 1 through 15 {
+      &:nth-child(#{$i}) {
+        z-index: 10 - $i;
+      }
+    }
+
 
     &.list{
       flex-direction: row;
