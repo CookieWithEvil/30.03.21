@@ -1,4 +1,15 @@
-export function getMoviesAC() {
+export const getFavoritesAC = () => {
+  let favorites = []
+  for (const [key, value] of Object.entries(localStorage)) {
+    favorites.push({id: key, name: value})
+  }
+  return {
+    type: 'FAVORITES_RECEIVED',
+    favorites,
+  }
+}
+
+export const getMoviesAC = () => {
   return function(dispatch) {
     dispatch({
       type: 'MOVIES_REQUESTED',
@@ -19,31 +30,19 @@ export function getMoviesAC() {
   }
 }
 
-export function changeByIdAC(id, movie, isFavorite) {
-  const requestOptions = {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({...movie, isFavorite})
-  };
+export const addToFavoritesAC = movie => {
+  localStorage.setItem(movie.id, movie.name)
+  return {
+    type: 'ADD_FAVORITE',
+    id: movie.id,
+    name: movie.name,
+  }
+}
 
-  return function(dispatch) {
-    dispatch({
-      type: 'MOVIE_CHANGE',
-    });
-
-  fetch(`https://my-json-server.typicode.com/moviedb-tech/movies/list/` + id, requestOptions)
-      .then(response => response.json())
-      .then(data => {
-        // dispatch(getMoviesAction()) //BACKEND ISN'T UPDATING
-        return dispatch({
-          type: 'CHANGED_MOVIES',
-          movie: {...movie, isFavorite},
-        })
-      })
-      .catch(error => dispatch({
-          type: 'CHANGE_MOVIES_FAILED',
-          movie: movie
-        })
-      )
-    }
+export const removeFromFavoritesAC = id => {
+  localStorage.removeItem(id)
+  return {
+    type: 'REMOVE_FAVORITE',
+    id,
+  }
 }

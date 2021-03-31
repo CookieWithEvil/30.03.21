@@ -2,16 +2,20 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import Popup from '../Popup/Popup'
 import { mapStateToProps } from '../../reducers/index'
-import { changeByIdAC } from '../../actions/index'
+import { addToFavoritesAC, removeFromFavoritesAC } from '../../actions/index'
 import './Gallery.scss'
 
 const Gallery = ({favorites, movies, dispatch}) => {
   const [isList, setIsList] = useState(false);
   const [shownMovie, showPopup] = useState(null);
 
-  const toggleToFavorites = (event, id, movie) => {
+  const addToFavorites = (event, movie) => {
     event.stopPropagation()
-    dispatch(changeByIdAC(id, movie, !movie.isFavorite))
+    if (movie.isFavorite) {
+      dispatch(removeFromFavoritesAC(movie.id))
+    } else {
+      dispatch(addToFavoritesAC(movie))
+    }
   }
 
   return <div className="gallery">
@@ -23,7 +27,7 @@ const Gallery = ({favorites, movies, dispatch}) => {
     {
       movies && movies.map(movie =>
         (<div key={movie.id} className={`gallery__movie movie ${isList ? 'list' : ''}`} onClick={() => showPopup(movie)}>
-          <button className={`gallery__movie-label ${movie.isFavorite ? 'favorite' : ''}`} onClick={(event) => toggleToFavorites(event, movie.id, movie)} />
+          <button className={`gallery__movie-label ${movie.isFavorite ? 'favorite' : ''}`} onClick={(event) => addToFavorites(event, movie)} />
           <div className="gallery__movie__image-container">
             <img className="gallery__movie__image-container-image" src={movie.img} alt="" />
           </div>
