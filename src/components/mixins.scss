@@ -1,5 +1,5 @@
-@mixin phone-portrait {
-  @media (max-width: 750px) {
+@mixin tablet {
+  @media (max-width: 831px) {
     @content;
   }
 }

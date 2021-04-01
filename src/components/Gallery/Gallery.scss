@@ -10,7 +10,7 @@
   flex-wrap: wrap;
   width: 71%;
 
-  @include phone-portrait {
+  @include tablet {
     width: 99%;
   }
 
@@ -23,6 +23,38 @@
     width: 98%;
     display: flex;
     justify-content: space-between;
+
+    &__genre-select {
+      background: #277365;
+      outline: none;
+      border: 1px solid #d58c77;
+      border-radius: 5px;
+      color: #d58c77;
+      font-weight: 500;
+    }
+
+    &__view-as {
+      margin: 10px 10px 20px;
+      float: right;
+      font-weight: 500;
+
+      &-card {
+        margin: 0 5px;
+        height: 20px;
+        width: 20px;
+        border: none;
+        background: rgba(0,0,0,0) url('../../assets/images/apps-grid.svg');
+        background-size: 100% 100%;
+      }
+
+      &-list {
+        height: 20px;
+        width: 20px;
+        border: none;
+        background: rgba(0,0,0,0) url('../../assets/images/list-round-bullet.svg');
+        background-size: 100% 100%;
+      }
+    }
   }
 
   &__movie {
@@ -37,7 +69,7 @@
     transition: all 0.5s;
     cursor: help;
 
-    @include phone-portrait {
+    @include tablet {
       width: 48.5%;
     }
 
@@ -45,14 +77,6 @@
       &:nth-child(#{$i}) {
         z-index: 10 - $i;
       }
-    }
-
-
-    &.list{
-      flex-direction: row;
-      justify-content: flex-start;
-      width: 100%;
-      transition: all 0.5s;
     }
 
     &-label {
@@ -65,7 +89,7 @@
       border: none;
       background-size: 100% 100%;
 
-      @include phone-portrait {
+      @include tablet {
         height: 40px;
         width: 40px;
       }
@@ -85,27 +109,62 @@
         height: 200px;
         width: auto;
       }
-
     }
 
+    &-info {
+      width: 100%;
+    }
+
+    &.list{
+      flex-direction: row;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      width: 100%;
+      transition: all 0.5s;
+
+      .gallery__movie-label {
+        top: 5px;
+        right: 0;
+        height: 40px;
+        width: 40px;
+      }
+
+      .gallery__movie__image-container {
+        display: flex;
+        justify-content: flex-start;
+        width: 20%;
+
+        &-image {
+          height: auto;
+          width: 100%;
+        }
+      }
+
+      .gallery__movie-info {
+        margin-left: 5px;
+        width: calc(80% - 5px);
+        text-align: left;
+
+        &__genres {
+          gap: 10px;
+          height: 22px;
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          list-style: none;
+          padding: 0;
+          margin-right: 10px;
+
+          &-genre {
+            width: 90px;
+            margin-top: 5px;
+            background: #1a5e51;
+            border: 1px solid #d58c77;
+            text-align: center;
+          }
+        }
+      }
+    }
   }
 }
-
-// .card-view,
-// .list-view {
-//   height: 20px;
-//   width: 20px;
-//   border: none;
-//   background: rgba(0,0,0,0) url('../../assets/images/list-round-bullet.svg');
-//   background-size: 100% 100%;
-// }
-//
-// .card-view {
-//   background: rgba(0,0,0,0) url('../../assets/images/apps-grid.svg');
-//   background-size: 100% 100%;
-// }
-//
-// .view-as {
-//   margin: 10px 10px 20px;
-//   float: right;
-// }

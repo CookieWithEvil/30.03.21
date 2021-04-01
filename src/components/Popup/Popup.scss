@@ -6,6 +6,7 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    padding: 10px;
     min-height: 300px;
     width: 1000px;
     background: #1a5e51;
@@ -13,8 +14,8 @@
     border-radius: 5px;
     text-align: left;
 
-    @include phone-portrait {
-      width: 90vh;
+    @include tablet {
+      min-height: 90vh;
     }
 
     &__poster{
@@ -35,6 +36,16 @@
       color: coral;
       font-weight: 500;
       border-radius: 50%;
+
+      @include tablet {
+        height: 30px;
+        width: 30px;
+        font-size: 2rem;
+        top: 0px;
+        right: 0px;
+        border: none;
+      }
+
     }
 
     &__general{

@@ -7,7 +7,7 @@
   margin: 0;
   color: #d58c77;
 
-  @include phone-portrait {
+  @include tablet {
     flex-direction: column-reverse;
   };
 }

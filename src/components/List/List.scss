@@ -6,7 +6,7 @@
   border-radius: 5px;
   min-height: 200px;
 
-  @include phone-portrait {
+  @include tablet {
     margin-bottom: 10px;
     width: 100%;
   }
@@ -29,7 +29,7 @@
     &-item{
       text-align: left;
 
-      @include phone-portrait {
+      @include tablet {
         margin-top: 1rem;
       }
 
@@ -39,7 +39,7 @@
         border: none;
         color: #ff7f50;
 
-        @include phone-portrait {
+        @include tablet {
           font-size: 1.3rem;
         }
       }
