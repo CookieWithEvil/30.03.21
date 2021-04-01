@@ -20,10 +20,12 @@ const Gallery = ({favorites, movies, dispatch}) => {
 
   return <div className="gallery">
     <h3 className="gallery-title">Movies Gallery</h3>
-    {/*<div className="gallery__settings">
-       <div className="genre-select">Select Genre</div>
-      <div className="view-as">view as: <button className="card-view" onClick={() => setIsList(false)} /> <button className="list-view" onClick={() => setIsList(true)} /></div>
-    </div>*/}
+
+    <div className="gallery__settings">
+      {/* <div className="genre-select">Select Genre</div>
+      <div className="view-as">view as: <button className="card-view" onClick={() => setIsList(false)} /> <button className="list-view" onClick={() => setIsList(true)} /></div> */}
+    </div>
+
     {
       movies && movies.map(movie =>
         (<div key={movie.id} className={`gallery__movie movie ${isList ? 'list' : ''}`} onClick={() => showPopup(movie)}>

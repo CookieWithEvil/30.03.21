@@ -1,3 +1,5 @@
+@import "../mixins.scss";
+
 .popup {
   &__detail {
     position: relative;
@@ -10,6 +12,10 @@
     border: 2px solid #d58c77;
     border-radius: 5px;
     text-align: left;
+
+    @include phone-portrait {
+      width: 90vh;
+    }
 
     &__poster{
       height: 220px;
@@ -93,5 +99,5 @@
   width: 100%;
   background: rgba(3, 25, 21, 0.5);
   height: 100%;
-  z-index: 2;
+  z-index: 20;
 }

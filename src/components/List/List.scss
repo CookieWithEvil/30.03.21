@@ -29,11 +29,19 @@
     &-item{
       text-align: left;
 
+      @include phone-portrait {
+        margin-top: 1rem;
+      }
+
       &__remove-button {
         float: right;
         background: none;
         border: none;
         color: #ff7f50;
+
+        @include phone-portrait {
+          font-size: 1.3rem;
+        }
       }
     }
   }

@@ -18,6 +18,13 @@
     width: 100%;
   }
 
+  &__settings {
+    margin: 0 auto 20px;
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__movie {
     position: relative;
     display: flex;
@@ -57,6 +64,11 @@
       top: -10px;
       border: none;
       background-size: 100% 100%;
+
+      @include phone-portrait {
+        height: 40px;
+        width: 40px;
+      }
 
       &.favorite {
         background: url('../../assets/images/fav.svg');
